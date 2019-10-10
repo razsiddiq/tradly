@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-class Login extends Component {
+class Forgotpassword extends Component {
     constructor() {
         super();
 
         this.state = {
-            email: '',
-            password: ''
+            email: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -35,29 +34,21 @@ class Login extends Component {
         return (
             <div className="FormCenter">
               <div className="FormTitle">        
-                <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
-                <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Login</NavLink>
+                <NavLink to="/forgot-password" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Forgot Password</NavLink>
               </div>
               <form onSubmit={this.handleSubmit} className="FormFields">
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
                   <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
                 </div>
-
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="password">Password</label>
-                  <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
-                </div>
-
+               
                 <div className="FormField col-lg-12 nopadding ">
-                   <Link to="/forgot-password" className="FormField__Link pull-right">Forgot Password?</Link>
+                   <Link to="/" className="FormField__Link pull-right">  Go Back</Link>
                 </div>           
 
                 <div className="FormField text-centered">
-                    <button className="FormField__Button ">Sign In</button> 
-                    <br>
-                    </br>
-                    <Link to="/" className="FormField__Link mt-30">Create an account</Link>
+                    <button className="FormField__Button ">Submit</button> 
+                   
                 </div>
               </form>
             </div>
@@ -65,4 +56,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Forgotpassword;

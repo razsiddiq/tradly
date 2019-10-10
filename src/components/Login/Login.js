@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
-class SignInForm extends Component {
+class Login extends Component {
     constructor() {
         super();
 
@@ -34,8 +34,14 @@ class SignInForm extends Component {
     render() {
         return (
         <div className="FormCenter">
+
+            <div className="FormTitle">        
+                  <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
+                  <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Login</NavLink>
+            </div>
+
             <form onSubmit={this.handleSubmit} className="FormFields">
-            <div className="FormField">
+              <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
                 <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
               </div>
@@ -56,11 +62,10 @@ class SignInForm extends Component {
                   </br>
                   <Link to="/" className="FormField__Link mt-30">Create an account</Link>
               </div>
-
             </form>
-          </div>
+        </div>
         );
     }
 }
 
-export default SignInForm;
+export default Login;

@@ -6,11 +6,11 @@ class SignUpForm extends Component {
         super();
 
         this.state = {
-            lastname: '',
-            password: '',
             firstname: '',
+            lastname: '',
             username: '',
-            hasAgreed: false
+            email:'',
+            password: ''           
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -19,7 +19,7 @@ class SignUpForm extends Component {
 
     handleChange(e) {
         let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
+        let value = target.value;
         let name = target.name;
 
         this.setState({
@@ -38,36 +38,41 @@ class SignUpForm extends Component {
         return (
         <div className="FormCenter">
             <form onSubmit={this.handleSubmit} className="FormFields">
-              <div className="FormField col-lg-6 nopadding">
+              <div className="FormField col-lg-6 no-left-padding">
                 
                 <input type="text" id="name" className="FormField__Input" placeholder="First Name" name="firstname" value={this.state.firstname} onChange={this.handleChange} />
               </div>
 
-              <div className="FormField col-lg-6 nopadding">
+              <div className="FormField col-lg-6 no-right-padding">
                 
                 <input type="text" id="lastname" className="FormField__Input" placeholder="Last Name" name="lastname" value={this.state.lastname} onChange={this.handleChange} />
               </div>
 
               <div className="FormField col-lg-12 nopadding">
                 
-                <input type="text" id="username" className="FormField__Input100" placeholder="Username" name="username" value={this.state.username} onChange={this.handleChange} />
+                <input type="text" id="username" className="FormField__Input" placeholder="Username" name="username" value={this.state.username} onChange={this.handleChange} />
               </div>
 
+              <div className="FormField col-lg-12 nopadding">
+                
+                <input type="text" id="email" className="FormField__Input" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} />
+              </div>
 
               <div className="FormField col-lg-12 nopadding">
                
-                <input type="password" id="password" className="FormField__Input100" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
+                <input type="password" id="password" className="FormField__Input" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
               </div>
               
 
-              <div className="FormField col-lg-6 nopadding">
-                <label className="FormField__CheckboxLabel">
-                    <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> I agree all statements in <a href="/" className="FormField__TermsLink">terms of service</a>
-                </label>
+              <div className="FormField col-lg-12 nopadding ">
+                 <Link to="/" className="FormField__Link pull-right">Forgot Password?</Link>
               </div>
 
-              <div className="FormField">
-                  <button className="FormField__Button mr-20">Sign Up</button> <Link to="/sign-in" className="FormField__Link">I'm already member</Link>
+              <div className="FormField text-centered">
+                  <button className="FormField__Button ">Sign Up</button> 
+                  <br>
+                  </br>
+                  <Link to="/sign-in" className="FormField__Link mt-30">Have Account ? Login</Link>
               </div>
             </form>
           </div>

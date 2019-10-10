@@ -46,39 +46,24 @@
   font-weight: bold;
 }
 
+.FormTitle__Link:active{
+  color: #17b68c;
+  font-weight: bold;
+}
+
 .FormField {
   margin-bottom: 40px;
 }
 
-.nopadding {
-   padding: 0 !important;
-}
+
 
 .FormField__Input {
-    width: 90%;
-    
+    width: 100%;    
     border: none;
     color: black;
-
     border: 1px solid #d5d7da;
     font-size: 1em;
-   /* font-weight: 300;*/
-    padding: 16px 13px;
-   
-    border-radius: 10px;
-}
-
-.FormField__Input100 {
-    width: 95%;
-    
-    border: none;
-    color: black;
-
-    border: 1px solid #d5d7da;
-    font-size: 1em;
-   /* font-weight: 300;*/
-    padding: 16px 13px;
-   
+    padding: 16px 13px;   
     border-radius: 10px;
 }
 
@@ -87,7 +72,7 @@
 }
 
 .FormField__Button {
-  background-color: #52C4B9;
+  background-color: #17b68c;
   color: white;
   border: none;
   outline: none;
@@ -98,28 +83,27 @@
 }
 
 .FormField__Link {
-  color: #66707D;
+  color: #000000;
   text-decoration: none;
   display: inline-block;
-  border-bottom: 1.5px solid #225E62;
-  padding-bottom: 5px;
 }
 
-.FormField__CheckboxLabel {
-  color: #646F7D;
-  font-size: .9em;
+.text-centered{
+  text-align: center;
 }
 
-.FormField__Checkbox {
-  position: relative;
-  top: 1.5px;
+.mt-30{
+  margin-top: 30px;
 }
 
-.FormField__TermsLink {
-  color: white;
-  border-bottom: 1px solid #199087;
-  text-decoration: none;
-  display: inline-block;
-  padding-bottom: 2px;
-  margin-left: 5px;
+.nopadding {
+  padding: 0 !important;
+}
+
+.no-left-padding{
+  padding-left: 0 !important;
+}
+
+.no-right-padding{
+  padding-right: 0 !important;
 }

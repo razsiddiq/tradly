@@ -11,18 +11,18 @@ class App extends Component {
     return (
       <Router>
         <div className="App">                      
-              <Route exact path="/" component={Signup}>
-              </Route>
-              <Route path="/sign-in" component={Login}>
-              </Route>
-              <Route path="/forgot-password" component={Forgotpassword}>
-              </Route>
-              <Route path="/home" component={Home}>
-              </Route>
+          <Route exact path="/" component={Signup}>
+          </Route>
+          <Route path="/sign-in" component={Login}>
+          </Route>
+          <Route path="/forgot-password" component={Forgotpassword}>
+          </Route>
+          <Route path="/home" component={Home}>
+          </Route>
         </div>
       </Router>
     );
   }
 }
 
-export default App;gk
+export default App;

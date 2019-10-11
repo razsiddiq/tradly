@@ -18,11 +18,15 @@ class Home extends Component {
         this.setState({redirect:true});
     }
 
-    render() {
-
-        if(!sessionStorage.getItem('userData')){
-            return(<Redirect to={'/sign-in'}/>)
+    componentWillMount(){
+        if(sessionStorage.getItem('userData')){
+            console.log('Success');
+        }else{
+            this.setState({redirect:true});
         }
+    }
+
+    render() {  
 
         if(this.state.redirect){
             return (<Redirect to={'/sign-in'}/>)

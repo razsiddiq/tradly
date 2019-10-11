@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Link, Redirect } from 'react-router-dom';
-//import { PostData} from '../../services/PostData';
+import { PostData} from '../../services/PostData';
 
 class Login extends Component {
     constructor() {
@@ -27,20 +27,19 @@ class Login extends Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
-        sessionStorage.setItem('userData','responseJSON');
-        this.setState({redirect : true});
-        // PostData('login', this.state).then((result) => {
-        //   let responseJSON = result;
-        //   if(responseJSON.userData){
-        //     sessionStorage.setItem('userData',responseJSON);
-        //     this.setState({redirect : true});
-        //   }else{
-        //     console.log('Login Error');
-        //   }
-        // });
-        // console.log('The form was submitted with the following data:');
-        // console.log(this.state);
+        e.preventDefault();    
+        PostData('login', this.state).then((result) => {
+          let responseJSON= result;
+          console.log(responseJSON);
+          if(responseJSON.userData){
+            sessionStorage.setItem('userData',responseJSON);
+            this.setState({redirect : true});
+          }else{
+            console.log('Login Error');
+          }
+        });
+        console.log('The form was submitted with the following data:');
+        
     }
 
     render() {

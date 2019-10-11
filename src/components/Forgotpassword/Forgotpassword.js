@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, Redirect } from 'react-router-dom';
 
 class Forgotpassword extends Component {
     constructor() {
@@ -31,7 +31,15 @@ class Forgotpassword extends Component {
     }
 
     render() {
+     
+        if(sessionStorage.getItem('userData')){
+          return(<Redirect to={'/home'}/>)
+        }
+
         return (
+          <React.Fragment>
+          <div className="App__Aside col-lg-6"></div>
+          <div className="App__Form col-lg-6">
             <div className="FormCenter">
               <div className="FormTitle">        
                 <NavLink to="/forgot-password" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Forgot Password</NavLink>
@@ -52,6 +60,8 @@ class Forgotpassword extends Component {
                 </div>
               </form>
             </div>
+            </div>
+          </React.Fragment>
         );
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, Redirect } from 'react-router-dom';
 
 class SignUpForm extends Component {
     constructor() {
@@ -35,8 +35,16 @@ class SignUpForm extends Component {
     }
 
     render() {
+
+      if(sessionStorage.getItem('userData')){
+        return(<Redirect to={'/home'}/>)
+      }
+
         return (
-        <div className="FormCenter">
+          <React.Fragment>
+          <div className="App__Aside col-lg-6"></div>
+          <div className="App__Form col-lg-6"> 
+          <div className="FormCenter">
         	  <div className="FormTitle">        
                 <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
                 <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Login</NavLink>
@@ -81,6 +89,8 @@ class SignUpForm extends Component {
               </div>
             </form>
           </div>
+          </div>
+          </React.Fragment>
         );
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, Redirect } from 'react-router-dom';
+//import { PostData} from '../../services/PostData';
 
 class Login extends Component {
     constructor() {
@@ -7,7 +8,8 @@ class Login extends Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            redirect: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -15,10 +17,10 @@ class Login extends Component {
     }
 
     handleChange(e) {
+      
         let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
+        let value = target.value;
         let name = target.name;
-
         this.setState({
           [name]: value
         });
@@ -26,13 +28,35 @@ class Login extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
-        console.log('The form was submitted with the following data:');
-        console.log(this.state);
+        sessionStorage.setItem('userData','responseJSON');
+        this.setState({redirect : true});
+        // PostData('login', this.state).then((result) => {
+        //   let responseJSON = result;
+        //   if(responseJSON.userData){
+        //     sessionStorage.setItem('userData',responseJSON);
+        //     this.setState({redirect : true});
+        //   }else{
+        //     console.log('Login Error');
+        //   }
+        // });
+        // console.log('The form was submitted with the following data:');
+        // console.log(this.state);
     }
 
     render() {
+
+        if(this.state.redirect){
+          return(<Redirect to={'/home'}/>)
+        }
+
+        if(sessionStorage.getItem('userData')){
+          return(<Redirect to={'/home'}/>)
+        }
+
         return (
+          <React.Fragment>
+          <div className="App__Aside col-lg-6"></div>
+          <div className="App__Form col-lg-6">  
             <div className="FormCenter">
               <div className="FormTitle">        
                 <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
@@ -61,6 +85,8 @@ class Login extends Component {
                 </div>
               </form>
             </div>
+            </div>
+            </React.Fragment>
         );
     }
 }

@@ -54,37 +54,39 @@ class Login extends Component {
 
         return (
           <React.Fragment>
-          <div className="App__Aside col-lg-6"></div>
-          <div className="App__Form col-lg-6">  
-            <div className="FormCenter">
-              <div className="FormTitle">        
-                <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
-                <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Login</NavLink>
+            <div className='App_login'>
+            <div className="App__Aside col-lg-6"></div>
+            <div className="App__Form col-lg-6">  
+              <div className="FormCenter">
+                <div className="FormTitle">        
+                  <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
+                  <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Login</NavLink>
+                </div>
+                <form onSubmit={this.handleSubmit} className="FormFields">
+                  <div className="FormField">
+                    <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
+                    <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
+                  </div>
+
+                  <div className="FormField">
+                    <label className="FormField__Label" htmlFor="password">Password</label>
+                    <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
+                  </div>
+
+                  <div className="FormField col-lg-12 nopadding ">
+                     <Link to="/forgot-password" className="FormField__Link pull-right">Forgot Password?</Link>
+                  </div>           
+
+                  <div className="FormField text-centered">
+                      <button className="FormField__Button ">Sign In</button> 
+                      <br>
+                      </br>
+                      <Link to="/" className="FormField__Link mt-30">Create an account</Link>
+                  </div>
+                </form>
               </div>
-              <form onSubmit={this.handleSubmit} className="FormFields">
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
-                  <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
-                </div>
-
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="password">Password</label>
-                  <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
-                </div>
-
-                <div className="FormField col-lg-12 nopadding ">
-                   <Link to="/forgot-password" className="FormField__Link pull-right">Forgot Password?</Link>
-                </div>           
-
-                <div className="FormField text-centered">
-                    <button className="FormField__Button ">Sign In</button> 
-                    <br>
-                    </br>
-                    <Link to="/" className="FormField__Link mt-30">Create an account</Link>
-                </div>
-              </form>
-            </div>
-            </div>
+              </div>
+              </div>
             </React.Fragment>
         );
     }

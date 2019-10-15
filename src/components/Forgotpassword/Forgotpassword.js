@@ -38,6 +38,7 @@ class Forgotpassword extends Component {
 
         return (
           <React.Fragment>
+          <div className='App_login'>
             <div className="App__Aside col-lg-6"></div>
             <div className="App__Form col-lg-6">
               <div className="FormCenter">
@@ -58,6 +59,7 @@ class Forgotpassword extends Component {
                 </form>
               </div>
             </div>
+           </div> 
           </React.Fragment>
         );
     }

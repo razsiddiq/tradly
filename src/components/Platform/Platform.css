@@ -2,5 +2,16 @@
     text-align: center;
     padding: 20px;
     font-size: 25px;
-    margin-bottom: 2em;
+    margin-bottom: 2em;	
+}
+
+.background-grey {
+    background: #fbfbfb;
+    padding: 30px 0px;
+    margin-top: 15px;
+    margin-bottom: 3em;
+}
+
+.background-grey h2{
+    font-size: 16px;
 }
